@@ -18,6 +18,7 @@ koinCore = "3.5.3"
 koinCompose = "1.1.2"
 koinAndroid = "3.5.3"
 koinAndroidxCompose = "3.5.3"
+kmmViewModel = "1.0.0-BETA-1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

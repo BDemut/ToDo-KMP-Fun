@@ -27,7 +27,9 @@ kotlin {
     }
     
     sourceSets {
-        
+        all {
+            languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+        }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
@@ -45,6 +47,8 @@ kotlin {
 
             api(libs.koin.core)
             implementation(libs.koin.compose)
+
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0-RC.2")
         }
     }
 }
