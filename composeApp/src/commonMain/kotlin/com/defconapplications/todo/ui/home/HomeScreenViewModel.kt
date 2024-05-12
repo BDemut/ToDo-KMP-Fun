@@ -1,14 +1,15 @@
 package com.defconapplications.todo.ui.home
 
 import TodoRepository
-import ViewTodoItem
+import com.defconapplications.todo.ui.home.mappers.HomeTodoItemSectionMapper
 import com.defconapplications.todo.utils.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class HomeScreenViewModel(
-    val repository: TodoRepository
+    val repository: TodoRepository,
+    val mapper: HomeTodoItemSectionMapper
 ) : ViewModel() {
     private val _state = MutableStateFlow(HomeState.initial())
     val state = _state.asStateFlow()
@@ -16,9 +17,7 @@ class HomeScreenViewModel(
     init {
         _state.update {
             it.copy(
-                items = repository.items.map { item ->
-                    ViewTodoItem(item.title, item.deadline.toString())
-                }
+                sections = mapper.map(repository.items)
             )
         }
     }

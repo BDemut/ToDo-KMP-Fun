@@ -1,8 +1,7 @@
 package com.defconapplications.todo
 
 import android.app.Application
-import com.defconapplications.todo.di.CommonKoinModuleFactory
-import org.koin.android.ext.android.inject
+import com.defconapplications.todo.di.AppKoinModuleFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,7 +15,7 @@ class ToDoApplication : Application() {
             androidLogger(level = Level.NONE)
             androidContext(androidContext = this@ToDoApplication)
             modules(
-                CommonKoinModuleFactory.create()
+                AppKoinModuleFactory.create()
             )
         }
     }
